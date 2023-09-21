@@ -31,13 +31,16 @@ for i in range(0,12):
 
     'Index': i,
 
-    'Value': number
+    'Value': number,
+
+    'Add': number
 
     })
 
     x.append(i)
 
     y.append(number)
+
 
 #Plot random values and save figure
 
