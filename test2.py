@@ -16,59 +16,43 @@ import matplotlib.pyplot as plt
 template = DocxTemplate('test.docx')
 
 #Generate list of random values
-
-table_contents = []
-
-x = []
-
-y = []
-
-for i in range(0,12):
-
-    number = round(random.random(),3)
-
-    table_contents.append({
-
-    'Index': i,
-
-    'Value': number,
-
-    'Add': number
-
-    })
-
-    x.append(i)
-
-    y.append(number)
-
-
-#Plot random values and save figure
-
-fig = plt.figure()
-
-plt.plot(x, y)
-
-fig.savefig('image.png', dpi=fig.dpi)
-
-#Import saved figure
-
-image = InlineImage(template,'image.png',Cm(10))
+def getinput():
+    Policy= input('policy for deviation')
+    Policy_Owner=input('Polcy Owner')
+    Business_Unit=input('Buisness Unit')
+    Risk_Owner=input('Risk Owner')
+    num_of_devi=int(input('Number of clause to be deviated'))
+    table=[]
+    for num_of_devi!=0 :
+        Clause=input('Clause to be Deviated')
+        Description=input('Description of the Deviation')
+        Control=input('Compensating Control')
+        row={'Clause':Clause,'Description':Description,'Control':Control}
+        table.append(row)
+        num_of_devi-1
+    Risk_Just=input('Risk Justification')
+    Con_accep=input('consideration for accetance')
+    dateofrisknoti=input('date of risk notification')
+    accptperiod=input('Accpetance Period')
+    Nextreview=input('next review date')
+    addrem=input('addtional remarks')
 
 #Declare template variables
 
 context = {
 
-'title': 'Automated Report',
+'Policy': Policy,
 
-'day': datetime.datetime.now().strftime('%d'),
+'Policy Owner': Policy_Owner,
 
-'month': datetime.datetime.now().strftime('%b'),
+'Business Unit': Business_Unit,
 
-'year': datetime.datetime.now().strftime('%Y'),
+'Risk Owner': Risk_Owner,
 
-'table_contents': table_contents,
+'table_contents': table,
 
-'image': image
+'Risk Justification': Risk_Just
+
 
 }
 
