@@ -1,6 +1,6 @@
 import os
 list=[]
-directory_in_str="C:\Users\cdg0000151\Downloads\emails"
+directory_in_str="C:\Users\151\Downloads\emails"
 directory = os.fsencode(directory_in_str)
     
 for file in os.listdir(directory):
